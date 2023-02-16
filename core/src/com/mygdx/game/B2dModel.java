@@ -31,7 +31,7 @@ public class B2dModel {
         // add a new ball at position 4, 1
         bodyFactory.makeCirclePolyBody(0, 1, 5, BodyFactory.DEFAULT, BodyDef.BodyType.DynamicBody,false);
         // add a new stone at position -4,1
-        bodyFactory.makeCirclePolyBody(-4, 1, 2, BodyFactory.DEFAULT, BodyDef.BodyType.DynamicBody,false);
+        bodyFactory.makeCirclePolyBody(-4, 1, 2, BodyFactory.DEFAULT, BodyDef.BodyType.KinematicBody,false);
     }
 
     // our game logic here

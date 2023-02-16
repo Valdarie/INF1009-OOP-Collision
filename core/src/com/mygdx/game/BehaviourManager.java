@@ -1,10 +1,7 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.physics.box2d.Contact;
-import com.badlogic.gdx.physics.box2d.ContactImpulse;
-import com.badlogic.gdx.physics.box2d.ContactListener;
-import com.badlogic.gdx.physics.box2d.Fixture;
-import com.badlogic.gdx.physics.box2d.Manifold;
+import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.*;
 
 public class BehaviourManager {
 	
@@ -26,6 +23,20 @@ public class BehaviourManager {
     
     public void onPlayerCollision(){
         System.out.println("Player collided with target");
+        /*
+        private void shootUpInAir(Fixture staticFixture, Fixture otherFixture){
+            System.out.println("Adding Force");
 
+            //Check if body connected to fixturea (fa) is a Static Body)
+            // If it is, we get body connected to fixtureb and apply the ApplyForceToCenter method to make it go up
+            //Box2D will ignore bodies that havent move.
+            if(fa.getBody().getType() == BodyDef.BodyType.StaticBody){
+                System.out.println("Force Added");
+                fb.getBody().applyForceToCenter(new Vector2(0,-10000), true);
+            }
+
+        }
+
+         */
     }
 }
