@@ -40,8 +40,8 @@ public class MenuScreen implements Screen{
         // Create a table that fills the screen. Everything else will go inside this table.
         Table table = new Table();
         table.setFillParent(true);
-            table.setDebug(true);
-            stage.addActor(table);
+        table.setDebug(true);
+        stage.addActor(table);
 
         table.add(newGame).fillX().uniformX();
         table.row().pad(10, 0, 10, 0);

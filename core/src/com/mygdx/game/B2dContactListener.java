@@ -1,3 +1,4 @@
+
 package com.mygdx.game;
 
 import com.badlogic.gdx.physics.box2d.Contact;
@@ -17,10 +18,10 @@ public class B2dContactListener implements ContactListener {
     @Override
     public void beginContact(Contact contact) {
         //BeginContact so we know when something starts colliding
-            System.out.println("Contact");
-            Fixture fa = contact.getFixtureA();
-            Fixture fb = contact.getFixtureB();
-            System.out.println(fa.getBody().getType()+" has hit "+ fb.getBody().getType());
+        System.out.println("Contact");
+        Fixture fa = contact.getFixtureA();
+        Fixture fb = contact.getFixtureB();
+        System.out.println(fa.getBody().getType()+" has hit "+ fb.getBody().getType());
         // Update world.setContactListener(new B2dContactListener(this)); to logic's constructor (b2dModel)
     }
 
