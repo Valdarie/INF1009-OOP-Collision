@@ -19,9 +19,10 @@ public class B2dModel {
     private createMovingObject player;
     BodyFactory bodyFactory;
     public B2dModel(){
-        world = new World(new Vector2(0,-10.0f), true);
+        world = new World(new Vector2(0,-5.0f), true);
        // Updates constructor to add contact listener
         world.setContactListener(new CollisionManager(this));
+        //Using enum
         objectType.FLOORTYPE.typeOfObject(world);
         objectType.TARGETTYPE.typeOfObject(world);
         objectType.PLAYERTYPE.typeOfObject(world);

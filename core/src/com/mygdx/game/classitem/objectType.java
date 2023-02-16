@@ -8,11 +8,20 @@ public enum objectType {
         public void typeOfObject(World world) {
             createFloor.createBasicFloor(world);
         }
+        @Override
+        public String getFixName(){
+            return "FloorFix";
+        }
     },
     PLAYERTYPE{
         @Override
         public void typeOfObject(World world){
             createMovingObject.createPlayerObject(world);
+        }
+
+        @Override
+        public String getFixName(){
+            return "PlayerFix";
         }
     },
     TARGETTYPE{
@@ -21,6 +30,11 @@ public enum objectType {
             createObject.createTarget(world);
         }
 
+        @Override
+        public String getFixName(){
+            return "TargetFix";
+        }
     };
     public abstract void typeOfObject(World world);
+    public abstract String getFixName();
 }
