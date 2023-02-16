@@ -11,7 +11,7 @@ public class BodyFactory {
 
     private World world;
     private static BodyFactory thisInstance;
-    public static final int STEEL = 0;
+    public static final int DEFAULT = 0;
 
     // Private because making a singleton class. AKA only 1 BodyFactory object
     // will ever be created as dont need more than 1. instead of creating new ones,
