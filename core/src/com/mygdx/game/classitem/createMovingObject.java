@@ -1,10 +1,9 @@
-package com.mygdx.game;
+package com.mygdx.game.classitem;
 
 import com.badlogic.gdx.physics.box2d.*;
 
 public class createMovingObject {
-    private Body player;
-    public createMovingObject(World world)
+    public static void createPlayerObject(World world)
     {
         //create a new body definition (type and location)
         BodyDef bodyDef = new BodyDef();
@@ -13,7 +12,7 @@ public class createMovingObject {
 
 
         // add it to the world
-        player = world.createBody(bodyDef);
+        Body player = world.createBody(bodyDef);
         player.setUserData("PlayerBody");
 
         // set the shape (here we use a box 50 meters wide, 1 meter tall )
