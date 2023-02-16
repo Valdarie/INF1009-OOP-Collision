@@ -1,4 +1,3 @@
-
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
@@ -17,14 +16,11 @@ public class B2dModel {
     public World world;
     private Box2DDebugRenderer debugRenderer;
     private OrthographicCamera camera;
-    private Body bodyd;
-    private Body bodys;
-    private Body bodyk;
+    private Body floor;
+    private Body target;
+    private Body player;
     BodyFactory bodyFactory;
-
-    private float test;
     public B2dModel(){
-
         world = new World(new Vector2(0,-10f), true);
         world.setContactListener(new B2dContactListener(this));
         createFloor();
@@ -46,7 +42,9 @@ public class B2dModel {
         bodyDef.position.set(0, -10);
 
         // add it to the world
-        bodyd = world.createBody(bodyDef);
+        floor = world.createBody(bodyDef);
+        floor.setUserData("FloorBody");
+
 
         // set the shape (here we use a box 50 meters wide, 1 meter tall )
         PolygonShape shape = new PolygonShape();
@@ -54,7 +52,8 @@ public class B2dModel {
 
         // create the physical object in our body)
         // without this our body would just be data in the world
-        bodyd.createFixture(shape, 0.0f);
+        floor.createFixture(shape, 0.0f);
+        floor.setUserData("FloorFix");
 
         // we no longer use the shape object here so dispose of it.
         shape.dispose();
@@ -69,11 +68,12 @@ public class B2dModel {
 
 
         // add it to the world
-        bodys = world.createBody(bodyDef);
+        target = world.createBody(bodyDef);
+        target.setUserData("TargetBody");
 
         // set the shape (here we use a box 50 meters wide, 1 meter tall )
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(1,1);
+        shape.setAsBox(1.2f,1.2f);
 
         // set the properties of the object ( shape, weight, restitution(bouncyness)
         FixtureDef fixtureDef = new FixtureDef();
@@ -82,7 +82,8 @@ public class B2dModel {
 
         // create the physical object in our body)
         // without this our body would just be data in the world
-        bodys.createFixture(shape, 0.0f);
+        target.createFixture(shape, 0.0f);
+        target.setUserData("TargetFix");
 
         // we no longer use the shape object here so dispose of it.
         shape.dispose();
@@ -97,7 +98,8 @@ public class B2dModel {
 
 
         // add it to the world
-        bodyk = world.createBody(bodyDef);
+        player = world.createBody(bodyDef);
+        player.setUserData("PlayerBody");
 
         // set the shape (here we use a box 50 meters wide, 1 meter tall )
         PolygonShape shape = new PolygonShape();
@@ -110,12 +112,13 @@ public class B2dModel {
 
         // create the physical object in our body)
         // without this our body would just be data in the world
-        bodyk.createFixture(shape, 0.0f);
+        player.createFixture(shape, 0.0f);
+        player.setUserData("PlayerFix");
 
         // we no longer use the shape object here so dispose of it.
         shape.dispose();
 
-        bodyk.setLinearVelocity(0, 0.75f);
+        player.setLinearVelocity(0, 0.75f);
     }
 
     // our game logic here
