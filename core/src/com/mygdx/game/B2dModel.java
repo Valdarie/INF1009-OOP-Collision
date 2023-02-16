@@ -21,7 +21,10 @@ public class B2dModel {
     private Body bodys;
     private Body bodyk;
     BodyFactory bodyFactory;
+
+    private float test;
     public B2dModel(){
+
         world = new World(new Vector2(0,-10f), true);
         world.setContactListener(new B2dContactListener(this));
         createFloor();
