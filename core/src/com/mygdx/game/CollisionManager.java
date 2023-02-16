@@ -8,18 +8,34 @@ import com.badlogic.gdx.physics.box2d.Manifold;
 
 public class CollisionManager implements ContactListener {
 
+	// Instance code start *************************************
+    private static CollisionManager instance;
+
+    // Retrieve singleton from anywhere
+    public static CollisionManager getInstance() {
+        if (instance == null) 
+            instance = new CollisionManager();        
+        return instance;
+    }
+    // Instance code end *************************************
+    
     private B2dModel parent;
     private BehaviourManager behaviourManager;
 
+    
+    public CollisionManager() {
+    	//init behaviour manager
+    	behaviourManager = BehaviourManager.getInstance();
+    }
+    
     public CollisionManager(B2dModel parent)
     {
         this.parent = parent;
-
     }
 
-    public CollisionManager(BehaviourManager behaviourManager) {
-        this.behaviourManager = behaviourManager;
-    }
+//    public CollisionManager(BehaviourManager behaviourManager) {
+//        this.behaviourManager = behaviourManager;
+//    }
 
     @Override
     public void beginContact(Contact contact) {
